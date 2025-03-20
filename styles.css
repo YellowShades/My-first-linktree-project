@@ -1,0 +1,139 @@
+/* ---------- COLOR VARIABLES ---------- */
+:root {
+    --primary-color: #940d45;
+    --secondary-color: #c94a87; 
+    --background-color: #c3b3f7;
+    --glass-bg: rgba(255, 255, 255, 0.25); /* Glassmorphism  */
+    --glass-border: rgba(255, 255, 255, 0.4); /*glass effect */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Soft shadow */
+    --text-color: rgb(9, 8, 8); /* Dark text */
+    --glow-color: rgb(243, 243, 207); /* Glow effect */
+}
+
+/* ---------- GLOBAL STYLES ---------- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* ---------- MAIN CONTAINER ---------- */
+.container {
+    width: 90%;
+    max-width: 360px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 16px var(--shadow-color);
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* ---------- PROFILE IMAGE ---------- */
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--text-color);
+    margin-bottom: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: float 3s ease-in-out infinite;
+}
+.profile-img:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+/* ---------- TEXT STYLES ---------- */
+h1, h2, p {
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    display: inline-block;
+}
+
+/* Micro-interaction: Letters jump on hover */
+h1 span {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+h1:hover span {
+    animation: jump 0.6s ease-in-out infinite alternate;
+}
+
+h2 {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+p {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* ---------- BUTTON & LINKS ---------- */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.link {
+    background: var(--glass-bg);
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+/* Hover effect: Glowing link effect */
+.link:hover {
+    box-shadow: 0 0 15px var(--glow-color);
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.link:active {
+    transform: scale(0.95);
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes jump {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 480px) {
+    .container { padding: 15px; }
+    .link { font-size: 14px; }
+}
+
+
